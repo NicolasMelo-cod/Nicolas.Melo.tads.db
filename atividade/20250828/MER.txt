@@ -1,0 +1,32 @@
+MER 
+
+flowchart TB
+  %% ENTIDADES
+  CLIENTE[Cliente]
+  PEDIDO[Pedido]
+  PAGAMENTO[Pagamento]
+
+  %% RELACIONAMENTOS
+  R1{FAZ}
+  R2{GERA}
+
+  %% CONEXÕES E CARDINALIDADES
+  CLIENTE -- "1" --> R1
+  R1 -- "N" --> PEDIDO
+
+  PEDIDO -- "1" --> R2
+  R2 -- "1" --> PAGAMENTO
+
+  %% ATRIBUTOS CLIENTE
+  CLI_NOME((nome)) --- CLIENTE
+  CLI_EMAIL((email)) --- CLIENTE
+  CLI_CPF((cpf)) --- CLIENTE
+
+  %% ATRIBUTOS PEDIDO
+  PED_VALOR((valor_total)) --- PEDIDO
+  PED_NOTA((nota_fiscal)) --- PEDIDO
+
+  %% ATRIBUTOS PAGAMENTO
+  PAG_TIPO((tipo: pix, débito, crédito, dinheiro)) --- PAGAMENTO
+  PAG_LIMITE((parcelamento até 6x sem juros)) --- PAGAMENTO
+  PAG_SEGURANCA((criptografia)) --- PAGAMENTO

@@ -1,0 +1,39 @@
+ 1 - Visão de négocio
+Próposito: Aumentar a agilidade e produtividade do pagamento.
+Atores: Clientes, vendedores, Atendimento, caixa.
+Politicas: Criptografia e segurança dos pagamentos, antifraude
+Processos: notas fiscais, baixa nos comprovantes, auditoria.
+
+2 - Visão de informação
+Conceitos: Cliente, Produto, Forma de pagamento, Vendedor, RegraDesconto.
+
+Invariantes: 
+Comprovante do Pix
+Desconto somente pagamento a vista
+Pagamento na hora
+
+Estados: Produto [escolheu, levou ao caixa, pagou, retirou];
+
+Restrições: Segurança contra fraudes e uso de dados pessoais de clientes.
+
+3 - Visão computacional
+Interfaces/serviços
+
+Payment methods: Lista de bandeiras de cartões aceitos, chave pix.
+DescountService: Desconto de primeira compra ou via pix validar/aplicar.
+OrderService: Criar um pedido, adicionar a forma de pagamento, finalizar.
+PaymentService: Autorização/Recebimento do pagamento.
+AudiService: Registrar pagamentos de todas as formas.
+
+4 - Visão de Engenharia
+Distribuidora: API, banco de dados, cache, Front web, backend
+Canais: Https/Ftps
+Infra: autoscaling do backend, redes de segurança
+Qualidade: Performance/tempo de resposta, confiabilidade, Segurança.
+
+5 - Visão Tecnológica
+Backend / Lógica do Sistema: Java ou Node.js para processar pagamentos e lógica de negócios, REST + OpenAPI para expor APIs de pagamento.
+Banco de Dados: PostgreSQL (relacional) para transações financeiras e histórico de pedidos, Índices em campos críticos: pedido_id, cliente_id, status_pagamento.
+Cache: Redis para acelerar consultas frequentes, como status de pagamento, Kafka ou RabbitMQ para processar pagamentos assíncronos e notificações.
+Autenticação e Segurança: Criptografia em trânsito (TLS/HTTPS) e em repouso (AES-256), Armazenamento seguro de dados sensíveis (cartão, CPF).
+CI/CD: GitHub Actions para testes e deploys automáticos.

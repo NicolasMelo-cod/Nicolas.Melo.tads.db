@@ -1,0 +1,53 @@
+---
+config:
+      theme: redux
+---
+flowchart TB
+        %% Entradas
+        CL[Cliente]
+        OC[Objeto de Compra]
+
+        %% Controles
+        LJ[Limite de descontos fornecidos pela loja]
+        SP[Sem cheque e fiado como pagamento]
+        CP[Criptografia de pagamentos]
+        LM[Limite de parcelamento 6x sem juros]
+
+        %% Mecanismo
+        FM[Pix, cartão de credito, debito e dinheiro]
+        BD[Banco de dados]
+        MQ[Maquininha de cartão]
+        ID[Fornecer seus dados e da compra]
+
+        %% Atividade Principal
+        A0[[A-0: Recebimento e gerenciamento de pagamentos]]
+
+        %% Saídas
+        VP[Valor toal a pagar]
+        NF[Nota fiscal]
+        RA[Regras de descontos aceitas]
+
+        %%Ligações
+        CL -->|Input| A0
+        OC -->|Input| A0
+
+        LJ -->|Control| A0
+        SP -->|Control| A0
+        CP -->|Control| A0
+        LM -->|Control| A0
+
+        FM -->|Mechanism| A0
+        BD -->|Mechanism| A0
+        MQ -->|Mechanism| A0
+        ID -->|Mechanism| A0
+
+        A0 -->|Output| VP
+        A0 -->|Outout| NF
+        A0 -->|Output| RA
+
+
+
+
+
+
+

@@ -1,0 +1,39 @@
+DER em texto — Pagamento
+
+Entidades e Atributos:
+
+Cliente
+
+PK: cpf
+
+Atributos: nome, email
+
+Pedido
+
+PK: id_pedido
+
+FK: cliente_cpf → Cliente
+
+Atributos: valor_total, nota_fiscal
+
+Pagamento
+
+PK: id_pagamento
+
+FK: pedido_id → Pedido
+
+Atributos: tipo (pix, débito, crédito, dinheiro), limite_parcelamento (até 6x sem juros), criptografia
+
+Relacionamentos e Cardinalidades:
+
+Cliente → Pedido: 1:N
+
+Um cliente pode fazer vários pedidos
+
+Cada pedido pertence a exatamente 1 cliente
+
+Pedido → Pagamento: 1:1
+
+Cada pedido tem exatamente 1 pagamento
+
+Cada pagamento pertence a exatamente 1 pedido

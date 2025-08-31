@@ -1,0 +1,20 @@
+---
+config:
+      theme: redux
+---
+flowchart TB
+        A1[[A1: Escolher forma de pagamento]]
+        A2[[A2: Checar cartão e saldo]]
+        A3[[A3: Sistema autoriza e valida os dados]]
+        A4[[A4: Banco desconta e sai o comprovante]]
+
+        %%Fluxo entre atividades
+        A1 -->|Dinheiro, pix, cartão de crédito ou débito| A2
+        A2 -->|Cartão validado| A3
+        A3 -->|Pagamento autorizado e dados confirmados| A4
+
+        %%Saídas finais
+        A2 -->CS[Cartão válido e saldo disponível]
+        A2 -->AP[Autorização do pagamento]
+        A4 --> VS[Valor descontado do meu saldo]
+        
